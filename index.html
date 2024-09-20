@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Text Diff</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="assets/styles.css" rel="stylesheet">
+    <script src="assets/scripts.js" defer></script>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-PNRM5NK4');
+    </script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <p>Enter two texts to compare their similarity:</p>
+        </header>
+
+        <main>
+            <div class="container">
+                <div class="textarea-container">
+                    <textarea id="text1" placeholder="Enter first text here..." oninput="onTextChange()"></textarea>
+                </div>
+                <div class="textarea-container">
+                    <textarea id="text2" placeholder="Enter second text here..." oninput="onTextChange()"></textarea>
+                </div>
+            </div>
+
+            <div id="differences-container">
+                <h2>Differences:</h2>
+                <div id="differences"></div>
+            </div>
+
+            <p id="result"></p>
+
+            <div class="clear-button-container">
+                <button id="clear-button" onclick="clearTexts()">Clear</button>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="https://github.com/rzagreb/text-diff" target="_blank" rel="noopener noreferrer">Github</a>
+                    <a href="https://github.com/rzagreb/text-diff/blob/main/LICENSE" target="_blank"
+                        rel="noopener noreferrer">License</a>
+                    <span>Your privacy is respected. Your data is not stored or shared.</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

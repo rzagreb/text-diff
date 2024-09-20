@@ -1,0 +1,423 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    /* Ensure the wrapper takes at least the full viewport height */
+    min-height: 100vh;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+}
+
+header {
+    text-align: center;
+    padding: 20px 20px 0px 20px;
+}
+
+header h1 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+header p {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+main {
+    flex: 1;
+    /* Allows the main content to grow and fill available space */
+    padding: 0 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+.textarea-container {
+    flex: 1 1 100px;
+    min-width: 250px;
+    max-width: 500px;
+    padding: 10px;
+}
+
+textarea {
+    width: 100%;
+    height: 200px;
+    padding: 15px;
+    resize: vertical;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+#differences-container {
+    max-width: 1000px;
+    margin: 30px auto 0 auto;
+    padding: 0 20px;
+}
+
+#differences-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#differences {
+    margin-top: 10px;
+    padding: 15px;
+    background-color: #fff;
+    font-family: monospace;
+    white-space: pre-wrap;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+
+#result {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.insert {
+    background-color: #e6ffed;
+}
+
+.delete {
+    background-color: #ffeef0;
+    text-decoration: line-through;
+}
+
+.clear-button-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#clear-button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#clear-button:hover {
+    background-color: #c82333;
+}
+
+#clear-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.5);
+}
+
+.similarity-details {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.similarity-details summary {
+    padding: 15px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    outline: none;
+    user-select: none;
+    transition: background-color 0.3s ease;
+}
+
+.similarity-details summary:hover,
+.similarity-details summary:focus {
+    background-color: #0056b3;
+}
+
+.similarity-details[open] summary {
+    background-color: #0056b3;
+}
+
+.similarity-details .details-content {
+    padding: 15px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.similarity-details .content-section {
+    margin-bottom: 20px;
+}
+
+.similarity-details .content-section h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.similarity-details .content-section p {
+    color: #555;
+    line-height: 1.6;
+}
+
+.similarity-details .content-section ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    color: #555;
+}
+
+.similarity-details .content-section a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.similarity-details .content-section a:hover {
+    text-decoration: underline;
+}
+
+.similarity-details .example-text {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.similarity-details .example-text p {
+    margin-bottom: 10px;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.footer-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 60px;
+}
+
+.footer-links a {
+    color: #ecf0f1;
+    text-decoration: none;
+    margin-right: 20px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:last-child {
+    margin-right: 0;
+}
+
+.footer-links a:hover {
+    color: #bdc3c7;
+}
+
+.footer-links span {
+    margin-left: auto;
+    font-size: 14px;
+    color: #ecf0f1;
+}
+
+#back-to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    display: none;
+    z-index: 1000;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+#back-to-top:hover {
+    background-color: #0056b3;
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .similarity-details {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .similarity-details {
+        width: 95%;
+    }
+
+    .similarity-details summary {
+        font-size: 1em;
+        padding: 10px;
+    }
+
+    .similarity-details .details-content {
+        padding: 10px;
+    }
+
+    .similarity-details .content-section h3 {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .textarea-container {
+        margin: 5px 0;
+        max-width: 90%;
+        padding: 5px;
+    }
+
+    textarea {
+        height: 180px;
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    #differences-container {
+        padding: 0 10px;
+        margin-top: 15px;
+    }
+
+    #differences-container h2 {
+        margin-bottom: 5px;
+    }
+
+    #differences {
+        padding: 10px;
+        margin-top: 5px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-links {
+        justify-content: center;
+    }
+
+    .footer-notes {
+        margin-top: 10px;
+    }
+
+    .footer-social {
+        justify-content: center;
+    }
+
+    .clear-button-container {
+        margin: 15px 0;
+    }
+
+    #clear-button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        margin: 10px;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+
+    header p {
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+
+    textarea {
+        height: 150px;
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    #differences-container h2 {
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+
+    #differences {
+        font-size: 14px;
+        padding: 10px;
+        margin-top: 5px;
+    }
+
+    .footer-content {
+        padding: 0 10px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer-social {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .clear-button-container {
+        margin: 10px 0;
+    }
+
+    #clear-button {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}
